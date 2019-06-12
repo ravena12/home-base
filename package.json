@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://ravena12.github.io/home-base/home-base/ && angular-cli-ghpages --branch gh-pages"
+    "deploy": "ng build --prod --base-href https://ravena12.github.io/home-base/ && angular-cli-ghpages --branch gh-pages"
   },
   "private": true,
   "dependencies": {

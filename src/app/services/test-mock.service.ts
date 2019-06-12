@@ -16,16 +16,16 @@ export class TestDataAccessService implements DataTableService {
     ) {}
 
     public getTableData(): Observable<any> {
-        return this.httpClient.get('../../assets/data/dataProfile.json');
+        return this.httpClient.get('assets/data/dataProfile.json');
     }
 
     public getActionData(): Observable<any> {
-        return this.httpClient.get('../../assets/data/actionLog.json');
+        return this.httpClient.get('assets/data/actionLog.json');
     }
 
     public getDetailData(id: string): Observable<any> {
         console.log('here');
-        return this.httpClient.get('../assets/data/actionLog.json')
+        return this.httpClient.get('assets/data/actionLog.json')
             .pipe(
                 map(result => {
                     let results = (<any[]>result);
@@ -51,7 +51,7 @@ export class TestDataAccessService implements DataTableService {
     public getFilteredPageData(start: number, end: number, prop: string, value: string, sortSpec?: SortSpecification): Observable<any>;
     public getFilteredPageData(pageSpec: PageSpecification, prop: string, value: string, sortSpec?: SortSpecification): Observable<any>;
     public getFilteredPageData(arg1: any, arg2: any, arg3: any, arg4?: any, arg5?: any): Observable<any> {
-        return this.httpClient.get('../../assets/data/table-dest-data')
+        return this.httpClient.get('assets/data/table-dest-data')
             .pipe(
                 map(result => {
                     let results = (<any[]>result);
@@ -86,7 +86,7 @@ export class TestDataAccessService implements DataTableService {
     public getPageData(start: number, end: number, sortSpec?: SortSpecification, filterSpec?: FilterSpecification): Observable<any>;
     public getPageData(pageSpec: PageSpecification, sortSpec?: SortSpecification, filterSpec?: FilterSpecification): Observable<any>;
     public getPageData(arg1: any, arg2?: any, arg3?: any, arg4?: any): Observable<any> {
-        return this.httpClient.get('../../assets/data/table-test-data.json')
+        return this.httpClient.get('assets/data/table-test-data.json')
             .pipe(
                 map(result => {
                     let results = (<any[]>result);
@@ -154,7 +154,7 @@ export class TestDataAccessService implements DataTableService {
             );
     }
     public getPageData2(arg1: any, arg2?: any, arg3?: any, arg4?: any): Observable<any> {
-        return this.httpClient.get('../../assets/data/actionLog.json')
+        return this.httpClient.get('assets/data/actionLog.json')
             .pipe(
                 map(result => {
                     let results = (<any[]>result);
