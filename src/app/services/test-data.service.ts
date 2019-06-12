@@ -13,8 +13,8 @@ import { PageSpecification } from './page-specification.interface';
 export class TestDataAccessService {
     private detailData;
     // public tableData;
-    public _url = '../assets/data/table-test-data.json';
-    public _profileUrl = '../assets/data/dataProfile.json';
+    public _url = './assets/data/table-test-data.json';
+    public _profileUrl = './assets/data/dataProfile.json';
 //     public tableData = 
 // [ { fullname: 'Jamshid Honari',
 //     pushed: '02/19/2019',
@@ -439,7 +439,7 @@ export class TestDataAccessService {
     }
 
     public getTableData(): Observable<any> {
-        return this.http.get('../assets/data/table-test-data.json');
+        return this.http.get('./assets/data/table-test-data.json');
     }
 
     public getProfile(): Observable<any> {
