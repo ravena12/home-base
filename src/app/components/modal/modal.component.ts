@@ -10,7 +10,7 @@ import { TestDataAccessService } from '../../services/test-data.service';
 export class ModalComponent implements OnInit {
   name: string;
   constructor( private dataService: TestDataAccessService, public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: {profileSelected: any, items: any}) {
+    @Inject(MAT_DIALOG_DATA) public data: {profileSelected: any, items: any}) {
   }
 
   onNoClick(items): void {
