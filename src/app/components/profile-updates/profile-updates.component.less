@@ -1,0 +1,273 @@
+.triangle_flag {
+    background-image: url("../../../assets/images/triangle.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: left; 
+  }
+  
+    .container {
+      height: 140px;
+    }
+  
+  //DATA TABLE STYLE
+  @media(min-width: 527px) {
+  .ps-data-table {
+      font-family: 'Helvetica Neue', Helvetica, Arial;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      color: #3b3b3b;
+      flex-direction: column;
+      min-width: 300px;
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-bottom: 40px;
+      width: 90%;
+  }
+  
+  
+  thead {
+      min-height: 64px;
+      text-align: left;
+      border-bottom: 1px solid rgb(211, 211, 211);
+  }
+  
+  th {
+    padding-left: 10px;
+  }
+  
+  td:nth-child(4),
+  td:nth-child(5) {
+    padding-right: 25px;
+  }
+  
+  th:first-child {
+    padding-left: 0px;
+  }
+  
+  td {
+      padding-left: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgb(214, 214, 214);
+      background-color: #fff; 
+      text-align: left;
+      vertical-align: top;
+  }
+  
+  // td:nth-child(1) { 
+  //   padding: 5px;
+  //   text-align: center;
+  // }
+  
+  // td:nth-child(2) {
+  //   padding: 5px;
+  //   text-align: center;
+  // }
+  
+  td:nth-child(3) {
+    padding: 5px;
+    width:15%;
+  }
+  
+  
+  th.clickable {
+      vertical-align: bottom;
+      font-family: 'Gotham Light';
+    }
+  
+  tbody {
+      border-top: none;
+  }
+  
+  tfoot td {
+      padding: 5px;
+      border-bottom: none;
+  }
+  tfoot td .ps-paginator-nav {
+      padding: 0px;
+  }
+  
+  /* The container */
+  tbody .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The container */
+  tbody .container {
+    display: block;
+    position: absolute;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  tbody .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid gray;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  tbody .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  tbody .container input:checked ~ .checkmark {
+    background-color: #909090;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  tbody .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  tbody .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  
+  }
+  
+  
+  
+  @media (max-width:576px) {
+  
+    .ps-data-table {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      color: #3b3b3b;
+      display: flex;
+      flex-direction: column;
+      min-width: 300px;
+      margin-bottom: 40px;
+  }
+     td {
+      display: block;
+      margin-bottom: 20px;
+    }
+  
+     td::before {
+      content: attr(data-label);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      margin-right: 10px;
+      display:block;
+    }
+  
+     .td-border {
+      border-top: 1px solid #D3D6DC;
+      margin-bottom: 20px;
+    }
+  
+     td:first-child:before {
+      margin-top: 20px;
+    }
+      
+     th {
+      display: none;
+      width: auto;
+    }
+  
+     tr {
+      margin-bottom: 20px;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  section.header-action {
+    margin-bottom: 120px;
+  }
+  
+  section.header-action h1 {
+    display: inline-block;
+    position: absolute;
+    left: 50px;
+    line-height: 22px;
+  }
+  
+  section.header-action p {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  section.header-action p,
+  section.header-action a {
+    color: #1173d4;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .header-action a.pushToDB {
+    float: right;
+    margin-right:100px;
+  }
+  
+  .header-action a:hover {
+    cursor: pointer;
+  }
+  
+  button.btn-button {
+    height: 50px;
+    background-color: #0b57a2;
+    width: 225px;
+    font-size: 14px;
+    font-family: 'Gotham Light';
+    padding-top: 16px;
+    color: white;
+    float: right;
+  }
+  
+  
+  
+  

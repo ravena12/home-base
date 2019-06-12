@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-header-test></app-header-test>
+<section class="header-control">
+    <h2>Dashboard</h2>
+</section>
+<div class="select-style">
+<input [ngModel]="searchStr" (ngModelChange)="modelChange($event)"  placeholder="Search People"/>
+<div  class="input-group-append">
+    <button class="btn button-1 search-button" type="submit" disabled=""></button>
+</div>
+        <div class="statusDropdown">
+                <button class="statusBtn">{{profileStatus}}
+                 <i class="down"></i>    
+                </button>
+                <div class="statusDropdown-content">
+                <a  href="#" onclick="return false;" (click)="selectFilter('Added')">Added</a>
+                <a  href="#" onclick="return false;"  (click)="selectFilter('Updated')">Updated</a>
+                <a  href="#" onclick="return false;"  (click)="selectFilter('Removed')">Removed</a>
+                <a  href="#" onclick="return false;"  (click)="selectFilter('Existing')">Existing</a>    
+                </div>
+            </div>
+    </div>
+
+    <table class="ps-data-table">
+            <thead>
+                    <tr>
+                            <th aria-label="sort by name" class="clickable" (click)="sort('name', 'remote')">NAME</th>
+                            <th aria-label="sort by id" class="clickable" (click)="sort('ID', 'remote')"> ID #</th>
+                            <th aria-label="sort by status" class="clickable" (click)="sort('status', 'remote')">
+                                <div>PROFILE STATUS</div>
+                            </th>
+                            <th aria-label="sort by date" class="clickable" (click)="sort('date', 'remote')">PUSH DATE</th>
+                            <th class="clickable">ACTIONS</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let item of tableDataItems">
+                            <td data-label="NAME">{{ item.fullname }}</td>
+                            <td data-label="ID #">{{ item.id }}</td>
+                            <td data-label="PROFILE STATUS" [ngStyle]="getItemColor(item)">{{ item.status }}</td>
+                            <td data-label="PUSH DATE">{{ item.pushed }}</td>
+                            <td data-label="ACTIONS">
+                                <div class="dropup">
+                                    <button class="dropbtn">Actions</button>
+                                    <div class="dropup-content">
+                                        <a  href="#" onclick="return false;">
+                                            <button class="modal_opener" (click)="openControlPanelModal(item)">Push to DB</button>
+                                        </a>
+                                        <a routerLink="/profile-updates/{{item.id}}">View updates</a>
+                                        <a href="#">Delete profile</a>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+            </tbody>
+        </table>
+        <nav class="ps-paginator-nav" aria-label="pagination" *ngIf="TotalNumberPages > 0">
+        <a href="#" 
+            class="ps-paginator-prev" 
+            aria-label="previous TotalNumberPagess"
+            (click)="paginate($event, 'prev')"
+            *ngIf="determineVisbility('prev')">
+            <span aria-hidden="true">&lt;</span> Prev
+        </a>
+        <div class="ps-paginator-custom">
+                <ul *ngIf="currentPage <= 5 && TotalNumberPages > 7" class="ps-paginator-list" >
+                    <!-- Slot 1  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === 1}" >
+                        <a href="#" (click)="goToPage($event, 1)">1</a>
+                    </li>
+                    <!-- Slot 2 -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === 2}">
+                        <a href="#" (click)="goToPage($event, 2)">2</a>
+                    </li>
+                    <!-- Slot 3  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === 3}">
+                        <a href="#" (click)="goToPage($event, 3)">3</a>
+                    </li>
+                    <!-- Slot 4  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === 4}">
+                        <a href="#" (click)="goToPage($event, 4)">4</a>
+                    </li>
+                    <!-- Slot 5  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === 5}">
+                        <a href="#" (click)="goToPage($event, 5)">5</a>
+                    </li>
+                    <!-- Slot 6 -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 1}"  >
+                        <a href="#" (click)="goToPage($event, 6)">...</a>
+                    </li>
+                    <!-- Slot 7  -->
+                    <li  [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+                    </li>
+                </ul>
+                <ul *ngIf="currentPage > 5 && currentPage < TotalNumberPages - 4 && TotalNumberPages > 7" class="ps-paginator-list" >
+                    <li >
+                        <a href="#" (click)="goToPage($event, 1)">1</a>
+                    </li>
+                    <!-- Slot 2 -->
+                    <li >
+                        <a href="#" (click)="goToPage($event, currentPage - 1)">...</a>
+                    </li>
+                    <!-- Slot 3  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage}">
+                        <a href="#" (click)="goToPage($event, currentPage)">{{currentPage}}</a>
+                    </li>
+                    <!-- Slot 4  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 1}">
+                        <a href="#" (click)="goToPage($event, currentPage + 1)">{{currentPage + 1}}</a>
+                    </li>
+                    <!-- Slot 5  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 2}">
+                        <a href="#" (click)="goToPage($event, currentPage + 2 )">{{currentPage + 2}}</a>
+                    </li>
+                    <!-- Slot 6 -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 3}"  >
+                        <a href="#" (click)="goToPage($event, currentPage + 3 )">...</a>
+                    </li>
+                    <!-- Slot 7  -->
+                    <li  [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+                    </li>
+                </ul>
+                <ul *ngIf="currentPage >= TotalNumberPages - 4 && TotalNumberPages > 7"  class="ps-paginator-list">
+                    <li >
+                        <a href="#" (click)="goToPage($event, 1)">1</a>
+                    </li>
+                    <!-- Slot 2 -->
+                    <li >
+                        <a href="#" (click)="goToPage($event, 2)">...</a>
+                    </li>
+                    <!-- Slot 3  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 4}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages - 4)">{{TotalNumberPages - 4}}</a>
+                    </li>
+                    <!-- Slot 4  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 3}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages - 3)">{{TotalNumberPages - 3}}</a>
+                    </li>
+                    <!-- Slot 5  -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 2}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages - 2 )">{{TotalNumberPages - 2}}</a>
+                    </li>
+                    <!-- Slot 6 -->
+                    <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 1}"  >
+                        <a href="#" (click)="goToPage($event, TotalNumberPages - 1 )">{{TotalNumberPages - 1}}</a>
+                    </li>
+                    <!-- Slot 7  -->
+                    <li  [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+                        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+                    </li>
+                </ul>
+                <ul *ngIf=" TotalNumberPages <= 7"  class="ps-paginator-list">
+                    <li *ngFor="let page of pages" [ngClass]="{'ps-paginator-current-page': (page.pageNum == currentPage)}" >
+                            <a href="#" class="ps-paginator-link" (click)="goToPage($event, page.pageNum)">{{page.pageNum}}</a>
+                        </li>
+
+                    </ul>
+            </div>
+  <a href="#" 
+      class="ps-paginator-next"
+      aria-label="next TotalNumberPagess"
+      (click)="paginate($event, 'next')"
+      *ngIf="determineVisbility('next')">
+      <span aria-hidden="true">&gt;</span>
+  </a>
+</nav> 
+
+</html>

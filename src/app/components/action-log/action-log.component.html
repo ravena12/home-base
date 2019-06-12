@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-header-test></app-header-test>
+<section class="header-control">
+  <h2>Action Log</h2>
+</section>
+<table class="ps-data-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th aria-label="sort by name" class="clickable" (click)="sort('name', 'remote')">DATE</th>
+      <th aria-label="sort by id" class="clickable" (click)="sort('ID', 'remote')"> USER</th>
+      <th aria-label="sort by status" class="clickable" (click)="sort('status', 'remote')">PEOPLE CHANGED</th>
+      <th aria-label="sort by date" class="clickable" (click)="sort('date', 'remote')">ACTION TAKEN</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of tableDataItems">
+    <tr (click)="getOtherItemDetail(item)"  class="clickable">
+      <td [ngClass]="item.isExpanded ? 'action-collapse' : 'action-expand'"></td>
+      <td data-label="DATE">{{ item.date}}</td>
+      <td data-label="USER">{{ item.user}}</td>
+      <td data-label="PEOPLE CHANGED">{{ item.profileChanged}}</td>
+      <td data-label="ACTION TAKEN">{{ item.action}}</td>
+      </tr>
+      <ng-container *ngFor="let id of contains">
+      <!-- <tr class="collapsed" *ngIf="otherDetailData && item.id === otherDetailData.id"> -->
+      <tr class="collapsed" *ngIf="id === item.id">
+        <td colspan="2">
+          <table class="inner-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="clickable">Section</th>
+                <th class="clickable">Pushed Content</th>
+                <th class="clickable">Previous Content</th>
+              </tr>
+            </thead>
+            <tbody class="ps-data-table-section">
+              <tr *ngFor="let c of item.section">
+                <td>{{c.title}}</td>
+                <td>{{c.pushedContent}}</td>
+                <td>{{c.previousContent}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      </ng-container>
+  </tbody>
+</table>
+<nav class="ps-paginator-nav" aria-label="pagination" *ngIf="TotalNumberPages > 0">
+  <a href="#" class="ps-paginator-prev" aria-label="previous TotalNumberPagess" (click)="paginate($event, 'prev')"
+    *ngIf="determineVisbility('prev')">
+    <span aria-hidden="true">&lt;</span> Prev
+  </a>
+  <div class="ps-paginator-custom">
+    <ul *ngIf="currentPage <= 5 && TotalNumberPages > 7" class="ps-paginator-list">
+      <!-- Slot 1  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === 1}">
+        <a href="#" (click)="goToPage($event, 1)">1</a>
+      </li>
+      <!-- Slot 2 -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === 2}">
+        <a href="#" (click)="goToPage($event, 2)">2</a>
+      </li>
+      <!-- Slot 3  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === 3}">
+        <a href="#" (click)="goToPage($event, 3)">3</a>
+      </li>
+      <!-- Slot 4  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === 4}">
+        <a href="#" (click)="goToPage($event, 4)">4</a>
+      </li>
+      <!-- Slot 5  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === 5}">
+        <a href="#" (click)="goToPage($event, 5)">5</a>
+      </li>
+      <!-- Slot 6 -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 1}">
+        <a href="#" (click)="goToPage($event, 6)">...</a>
+      </li>
+      <!-- Slot 7  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+      </li>
+    </ul>
+    <ul *ngIf="currentPage > 5 && currentPage < TotalNumberPages - 4 && TotalNumberPages > 7" class="ps-paginator-list">
+      <li>
+        <a href="#" (click)="goToPage($event, 1)">1</a>
+      </li>
+      <!-- Slot 2 -->
+      <li>
+        <a href="#" (click)="goToPage($event, currentPage - 1)">...</a>
+      </li>
+      <!-- Slot 3  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage}">
+        <a href="#" (click)="goToPage($event, currentPage)">{{currentPage}}</a>
+      </li>
+      <!-- Slot 4  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 1}">
+        <a href="#" (click)="goToPage($event, currentPage + 1)">{{currentPage + 1}}</a>
+      </li>
+      <!-- Slot 5  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 2}">
+        <a href="#" (click)="goToPage($event, currentPage + 2 )">{{currentPage + 2}}</a>
+      </li>
+      <!-- Slot 6 -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === currentPage + 3}">
+        <a href="#" (click)="goToPage($event, currentPage + 3 )">...</a>
+      </li>
+      <!-- Slot 7  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+      </li>
+    </ul>
+    <ul *ngIf="currentPage >= TotalNumberPages - 4 && TotalNumberPages > 7" class="ps-paginator-list">
+      <li>
+        <a href="#" (click)="goToPage($event, 1)">1</a>
+      </li>
+      <!-- Slot 2 -->
+      <li>
+        <a href="#" (click)="goToPage($event, 2)">...</a>
+      </li>
+      <!-- Slot 3  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 4}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages - 4)">{{TotalNumberPages - 4}}</a>
+      </li>
+      <!-- Slot 4  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 3}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages - 3)">{{TotalNumberPages - 3}}</a>
+      </li>
+      <!-- Slot 5  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 2}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages - 2 )">{{TotalNumberPages - 2}}</a>
+      </li>
+      <!-- Slot 6 -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages - 1}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages - 1 )">{{TotalNumberPages - 1}}</a>
+      </li>
+      <!-- Slot 7  -->
+      <li [ngClass]="{'ps-paginator-current-page': currentPage === TotalNumberPages}">
+        <a href="#" (click)="goToPage($event, TotalNumberPages )">{{TotalNumberPages}}</a>
+      </li>
+    </ul>
+    <ul *ngIf=" TotalNumberPages <= 7" class="ps-paginator-list">
+      <li *ngFor="let page of pages" [ngClass]="{'ps-paginator-current-page': (page.pageNum == currentPage)}">
+        <a href="#" class="ps-paginator-link" (click)="goToPage($event, page.pageNum)">{{page.pageNum}}</a>
+      </li>
+
+    </ul>
+  </div>
+  <a href="#" class="ps-paginator-next" aria-label="next TotalNumberPagess" (click)="paginate($event, 'next')" *ngIf="determineVisbility('next')">
+    <span aria-hidden="true">&gt;</span>
+  </a>
+</nav>
+
+</html>

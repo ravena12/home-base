@@ -1,0 +1,16 @@
+<div mat-dialog-content >
+    <h2>Confirm Push</h2>
+    <p>{{data.profileSelected}}</p>
+    <div *ngIf="data.items !==undefined" class="selected">
+          <p *ngFor="let name of data.items">{{name}}</p>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button class="btn-alternate" (click)="onNoClick(data.items)" >Cancel
+    </button>
+    <button mat-button  class="btn" >Confirm</button>
+  </div>
+
+
+
+

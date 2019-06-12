@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-header-test></app-header-test>
+
+<section class="header-action">
+        <p><a href="/">Dashboard</a> > {{name}}'s profile</p>
+        <h1>User Updates</h1>
+        <a  href="#" class="pushToDB" onclick="return false;">
+            <button class="btn" (click)="openProfileUpdateModal()">Push to DB</button>
+        </a>
+    </section>
+    <table class="ps-data-table" id="myTable">
+            <thead>
+                    <tr>
+                        <th  class="clickable">SELECT</th>
+                        <th  class="clickable"> FLAG</th>
+                        <th  class="clickable">SECTION</th>
+                        <th  class="clickable">WPMG</th>
+                        <th  class="clickable">PREVIOUSLY PUSHED DATA</th>
+                     </tr>
+            </thead>
+            <tbody *ngFor="let item of tableData">
+                    <tr *ngFor="let key of item | keys">
+                        <td class="td-border" data-label="SELECT">
+                          <label class="container" (change)="handleSelect($event, item[key])">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                          </label>
+                      </td>
+                        <td data-label="FLAG" [ngClass]="{'triangle_flag': item[key].flag}"></td>
+                        <td data-label="SECTION" class="keyName">{{item[key].title}}</td>
+                        <td data-label="WPMG">{{item[key].valueDpmg}}</td>
+                        <td data-label="PREVIOUS">{{item[key].valueADB}}</td>
+                    </tr>
+                    </tbody>
+        </table>
+</html>

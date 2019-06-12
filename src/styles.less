@@ -1,0 +1,182 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "../variables.less";
+
+body {
+    background-color: @white;
+    margin: 0px;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+h1 {
+    font-size: 36px;
+    font-family: 'Gotham Light';
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Book';
+    src: url(assets/fonts/GothamBook.ttf);
+  }
+
+  @font-face {
+      font-family: 'Gotham Light';
+      src: url(assets/fonts/GothamLight.ttf);
+  }
+
+  @font-face {
+    font-family: 'Gotham Medium';
+    src: url(assets/fonts/GothamMedium.ttf);
+}
+
+//Overriding header styles from node_modules
+  .navbar-brand {
+    span.app-name {
+        color: rgb(94, 3, 102);       
+        font-family: 'Gotham Light' !important;
+        font-size: 18px;
+        line-height: 5px !important;
+        vertical-align: bottom;
+        &.seperator {
+            padding: 0 8px;
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start !important;
+    justify-content: space-between; 
+    font-size: 15px !important;
+    padding: 0px 30px !important;
+}
+
+.header-control h2 {
+    font-family: 'Gotham Light' !important;
+}
+
+.mat-dialog-content {
+    line-height: 22px;
+    margin-bottom: 20px !important;
+}
+
+.mat-dialog-content h2 {
+    color: @default-blue;
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-family: 'Gotham Book';
+}
+
+.mat-dialog-content p {
+    color: @inky-blue;
+    font-family: 'Gotham Book';
+    font-size: 16px;
+}
+
+.mat-dialog-actions {
+    float: right;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+
+}
+
+.mat-dialog-actions button {
+    justify-content: baseline;
+}
+
+   .navbar-brand {
+    span {
+        color: rgb(94, 3, 102);;        
+        font-family: 'Gotham Light';
+        font-size: 18px;
+        line-height: 7px;
+        vertical-align: bottom;
+        &.seperator {
+            padding: 0 8px;
+        }
+    }
+}
+
+
+
+.error-dialog-container .mat-dialog-actions {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+}
+
+// GENERAL STYLING 
+  .mat-dialog-container {
+    display: block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 650px !important;
+    min-height: 320px !important;
+    padding: 40px !important;
+    position: relative;
+    bottom: 90px;
+    min-height: inherit;
+    max-height: inherit;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.error-dialog-container .mat-dialog-container  {
+    height: 320px !important;
+}
+
+.dialog-container-1 .mat-dialog-content div.selected,
+.dialog-container-2 .mat-dialog-content div.selected {
+    column-count: 1;
+    -webkit-column-count: 1;
+}
+
+.fa-search {
+    font-size: 20px;
+}
+
+.fa-search::before {
+    font-weight: 100;
+  }
+  
+
+.btn {
+    background-color: @default-blue;
+    color: @white;
+    width: 160px;
+    height: 60px;
+    padding-top: 14px;
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.btn:hover {
+    background-color: @midnight;
+    cursor: pointer;
+}
+
+.btn-alternate {
+    background-color: @white;
+    border: 1px solid @default-blue;
+    color: @default-blue;
+    width: 160px;
+    height: 60px;
+    font-family: 'Gotham Medium';
+    font-size: 16px;
+    padding-top: 15px;
+    margin-left: 20px;
+}
+
+.btn-alternate:hover {
+    border: 1px solid @midnight;
+    color: @midnight;
+    cursor: pointer;
+}
+
