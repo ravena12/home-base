@@ -1,0 +1,193 @@
+    
+{ "items": [
+    {
+        "practitionerNumber": "4589",
+        "fields": [
+            {    
+                "name": "name",
+                "title": "Name",
+                "valueDpmg": "Frasier Crane",
+                "valueADB": "Fraiser Crane",
+                "flag": false
+            },
+            {
+                "name": "profileStatus",
+                "title": "Profile Status",
+                "valueDpmg": "accepting new patients",
+                "valueADB": "accepting new patients",
+                "flag": false
+            },
+            {   
+                "name": "specialty",
+                "title": "Specialty",
+                "valueDpmg": "accepting new patients",
+                "valueADB": "accepting new patients",
+                "flag": false
+            },
+            {   
+                "name": "limitations",
+                "title": "Limitations",
+                "valueDpmg": "pediatrics",
+                "valueADB": "pediatrics",
+                "flag": false
+            },
+            {   
+                "name": "networks",
+                "title": "Networks",
+                "valueDpmg": "core swedish",
+                "valueADB": "core",
+                "flag": true
+            },
+            {   
+                "name": "locations",
+                "title": "Locations",
+                "valueDpmg": "Bellevue Medical Center",
+                "valueADB": "Bellevue Medical Center",
+                "flag": false
+            },
+            {   
+                "name": "carePhilosophy",
+                "title": "Care Philosophy",
+                "valueDpmg": "I grew up and stuff",
+                "valueADB": "some people grow up, sometimes others dont",
+                "flag": true
+            },
+            {   
+                "name": "about",
+                "title": "About",
+                "valueDpmg": "I am a person, I do things, I have a job, I have a family. Im just enjoying life",
+                "valueADB": "I am a person",
+                "flag": true
+            },
+            {   
+                "name": "howithrive",
+                "title": "How I Thrive",
+                "valueDpmg": "i thrive by breathing",
+                "valueADB": "i thrive by breathing",
+                "flag": false
+            },
+            {   
+                "name": "medicalSchool",
+                "title": "Medical School",
+                "valueDpmg": "I went to 123 Surgery on Hospital Lane",
+                "valueADB": "I went to 123 Surgery on Hospital Lane",
+                "flag": false
+            },
+            {   
+                "name": "residency",
+                "title": "Residency",
+                "valueDpmg": "what where? ",
+                "valueADB": "what where?",
+                "flag": false
+            },
+            {   
+                "name": "affiliations",
+                "title": "Affiliations",
+                "valueDpmg": "I affiliate with pizza",
+                "valueADB": "I affiliate with pizza",
+                "flag": false
+            }
+        ]
+    },    
+    {
+        "practitionerNumber": "9876",
+        "fields": [
+            {    
+                "name": "name",
+                "title": "Name",
+                "valueDpmg": "Niles Crane",
+                "valueADB": "Niles Crane",
+                "flag": false
+
+            },
+            {
+                "name": "profileStatus",
+                "title": "Profile Status",
+                "valueDpmg": "accepting new patients",
+                "valueADB": "accepting new patients",
+                "flag": false
+            },
+            {   
+                "name": "specialty",
+                "title": "Specialty",
+                "valueDpmg": "accepting new patients",
+                "valueADB": "accepting new patients",
+                "flag": false
+            },
+            {   
+                "name": "limitations",
+                "title": "Limitations",
+                "valueDpmg": "pediatrics",
+                "valueADB": "pediatrics",
+                "flag": false
+            },
+            {   
+                "name": "networks",
+                "title": "Networks",
+                "valueDpmg": "core swedish",
+                "valueADB": "core",
+                "flag": true
+            },
+            {   
+                "name": "locations",
+                "title": "Locations",
+                "valueDpmg": "Bellevue Medical Center",
+                "valueADB": "Bellevue Medical Center",
+                "flag": false
+            },
+            {   
+                "name": "carePhilosophy",
+                "title": "Care Philosophy",
+                "valueDpmg": "I grew up and stuff",
+                "valueADB": "some people grow up, sometimes others dont",
+                "flag": true
+            },
+            {   
+                "name": "about",
+                "title": "About",
+                "valueDpmg": "I am a person, I do things, I have a job, I have a family. Im just enjoying life",
+                "valueADB": "I am a person",
+                "flag": true
+            },
+            {   
+                "name": "howithrive",
+                "title": "How I Thrive",
+                "valueDpmg": "i thrive by breathing",
+                "valueADB": "i thrive by breathing",
+                "flag": false
+            },
+            {   
+                "name": "medicalSchool",
+                "title": "Medical School",
+                "valueDpmg": "I went to 123 Surgery on Hospital Lane",
+                "valueADB": "I went to 123 Surgery on Hospital Lane",
+                "flag": false
+            },
+            {   
+                "name": "residency",
+                "title": "Residency",
+                "valueDpmg": "what where? ",
+                "valueADB": "what where?",
+                "flag": false
+            },
+            {   
+                "name": "affiliations",
+                "title": "Affiliations",
+                "valueDpmg": "I affiliate with pizza",
+                "valueADB": "I affiliate with pizza",
+                "flag": false
+            }
+        ]
+    }
+]
+}
+
+              
+                
+              
+              
+             
+              
+             
+            
+           
